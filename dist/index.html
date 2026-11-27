@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee9f8">
+<meta name="description" content="拔走烦恼：一个免费、无计时的拔黑头解压小游戏。轻轻拉起，听见噗的一声。支持手机、鼠标和键盘。">
+<title>Pore & Peace · 拔走烦恼</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css?v=1">
+</head>
+<body>
+<div class="app">
+<header><a class="brand" href="./" aria-label="Pore and Peace 首页"><span class="brand-icon">✳</span> pore <i>&</i> peace<span class="brand-tag">一小口放松</span></a><div class="header-actions"><button id="sound" class="icon-button" aria-label="关闭音效" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm5 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button><button id="help" class="icon-button" aria-label="玩法说明">?</button></div></header>
+<main>
+<section class="intro"><span class="eyebrow">A LITTLE LESS STRESS</span><h1>拔走烦恼<span>留一点<span class="serif">轻松。</span></span></h1><p>不赶时间，也不用完美。<br>让今天的小烦恼，<b>噗</b> 地消失。</p><div class="session"><span class="tiny-star">✦</span><div><span id="round-label">你的第 1 次小放松</span><small>没有倒计时，慢慢来就好</small></div></div><div class="collection"><div class="collection-heading"><span>今天的小收获</span><span id="tray-count">0 / 16</span></div><div id="tray" aria-hidden="true"></div><div class="all-time">已经放下 <strong id="total">0</strong> 个小烦恼</div></div></section>
+<section class="play-area" aria-label="拔黑头游戏区"><div class="scene-tabs" role="group" aria-label="选择场景"><button class="scene active" data-scene="peach" aria-pressed="true"><i class="swatch peach"></i>蜜桃脸颊</button><button class="scene" data-scene="cream" aria-pressed="false"><i class="swatch cream"></i>奶油鼻尖</button><button class="scene" data-scene="caramel" aria-pressed="false"><i class="swatch caramel"></i>焦糖脸颊</button></div>
+<div class="stage" id="stage"><span class="stage-spark spark-one">✧</span><span class="stage-spark spark-two">✦</span><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="skin peach" id="skin"><div class="skin-shine"></div><div class="face" aria-hidden="true"><span class="eye"></span><span class="mouth"></span><span class="eye"></span></div><div id="pores"></div><span class="blush blush-left"></span><span class="blush blush-right"></span></div><div id="pop-label" aria-hidden="true"></div><div class="instruction-pill"><span class="hand">☝</span><span id="hint">按住一颗黑头，轻轻向上拔</span></div></div>
+<div class="progress-line"><span>洁净度 <strong id="percent">0%</strong></span><div class="progress-track" role="progressbar" aria-label="清理进度" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0"><div id="progress"></div></div><span id="remaining">还剩 16 颗</span></div>
+</section>
+<aside class="tools-panel"><div class="tool-illustration" aria-hidden="true"><svg viewBox="0 0 130 160"><defs><linearGradient id="metal"><stop stop-color="#fff"/><stop offset=".45" stop-color="#b7adc8"/><stop offset=".6" stop-color="#f8f4ff"/><stop offset="1" stop-color="#9488a7"/></linearGradient></defs><g transform="rotate(24 65 80)"><path d="M53 18Q65 7 77 18L88 132 78 145 65 37 52 145 42 132Z" fill="url(#metal)" stroke="#8f829f" stroke-width="2"/><path d="m56 34-9 91m27-91 9 91" stroke="#fff" stroke-width="2"/><path d="m49 72 8 1m-9 7 8 1m-9 7 8 1m19-17-8 1m9 7-8 1m9 7-8 1" stroke="#9c8daa" stroke-width="2"/></g></svg><span class="tool-badge">温柔一点</span></div><h2>你的解压小镊子</h2><p>夹住 · 拉起 · 释放</p><div class="mode-switch" role="group" aria-label="操作方式"><button id="drag-mode" class="active" aria-pressed="true">拖动拔出</button><button id="tap-mode" aria-pressed="false">轻点解压</button></div><p class="mode-detail" id="mode-detail">按住黑头向上拖动。<br>拉得越长，离轻松越近。</p><button id="reset" class="reset-button"><span>↻</span> 换一片小烦恼</button><div class="little-note"><span>♡</span> 这一刻，只属于你。</div></aside>
+</main>
+<footer><span>JUST A LITTLE POP OF JOY.</span><span>虚拟解压游戏 · 不是真实护肤建议</span><a href="https://github.com/Jameslovecs/pore-and-peace" target="_blank" rel="noopener noreferrer">开源小宇宙 ↗</a></footer>
+</div>
+<div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+<dialog id="help-dialog"><button class="dialog-close" aria-label="关闭玩法说明">×</button><div class="dialog-symbol">✳</div><h2>把烦恼轻轻拔走</h2><p>拖动模式：按住黑头，向上拉约一指距离。中途松手也没关系，可以再试一次。</p><p>轻点模式：点一下，镊子替你慢慢拔。键盘玩家可用 Tab 选中黑头，再按 Enter 或空格。</p><p>清空这一片，就收获一份好心情。音效可在右上角关闭。</p><button class="primary dialog-close">知道啦，开始放松</button></dialog>
+<dialog id="complete-dialog"><span class="celebrate">✦</span><span class="eyebrow">ALL CLEAR, ALL CALM</span><h2>烦恼清空了。</h2><p>16 颗小烦恼，换一片好心情。<br>深呼吸，给自己一个小小的暂停。</p><div class="complete-stamp">100% 轻松</div><button class="primary" id="next-round">再放松一会儿</button><button class="quiet" id="enjoy">欣赏一下我的成果</button></dialog>
+<script type="module" src="./game.js?v=1"></script>
+</body></html>
