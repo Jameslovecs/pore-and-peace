@@ -4,6 +4,10 @@ A small, calming blackhead-plucking game. No countdown, login, ads, backend, or 
 
 **Play:** https://pore-and-peace-james.jamesbonds520.chatgpt.site
 
+## Project context / next game
+
+See [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) for the product decisions, user preferences, reusable parts, and instructions for starting a separate game without overwriting this one.
+
 ## Features
 
 - Drag a pore upward by 64 CSS pixels to pull it out; release early to let it spring back.
