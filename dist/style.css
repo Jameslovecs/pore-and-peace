@@ -4,3 +4,6 @@
 /* Keep interactive labels comfortably readable across screen sizes. */
 .scene,.mode-switch button,.reset-button{font-size:14px}.instruction-pill{font-size:14px}.tools-panel .mode-detail{font-size:14px}.tools-panel>p{font-size:14px}.intro>p{font-size:16px}.collection-heading{font-size:14px}.progress-line{font-size:12px}.session{font-size:14px}.session small,.all-time{font-size:12px}footer{font-size:12px}.scene{padding:10px 12px}@media(max-width:650px){.scene{font-size:13px;padding:9px 10px}.mode-switch button,.reset-button{font-size:13px}.instruction-pill{font-size:13px}.intro>p{font-size:14px}.all-time{font-size:11px}footer{font-size:10px}}@media(max-width:360px){.scene{padding:9px 8px;font-size:12px}}
 .app{overflow:hidden}
+/* Vary the plug itself, preserving the full-size interactive target. */
+.pore-core{width:var(--pore-size,13px);height:calc(var(--pore-size,13px) * .82);left:calc(50% - var(--pore-size,13px) / 2);transform:translateY(calc(-1 * var(--pull))) rotate(var(--pore-angle,0deg));filter:brightness(var(--pore-shade,1));border-radius:44% 56% 48% 52%}
+.pore-stem{width:calc(var(--pore-size,13px) * .77);left:calc(50% - var(--pore-size,13px) * .385)}

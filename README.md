@@ -9,7 +9,7 @@ A small, calming blackhead-plucking game. No countdown, login, ads, backend, or 
 - Drag a pore upward by 64 CSS pixels to pull it out; release early to let it spring back.
 - Switch to **轻点解压** for a gentle one-tap, 650 ms extraction.
 - Three skin scenes: peach cheek, cream nose, and caramel cheek.
-- Randomized positions, stretching plugs, tweezers, pop particles, and synthesized sound.
+- Organic scattered positions with minimum spacing, varied sizes and angles, stretching plugs, tweezers, pop particles, and synthesized sound.
 - Clear 16 pores to finish a round, then start another or enjoy the clean skin.
 - Keyboard: Tab to a pore, then Enter or Space. Focus advances after extraction.
 - Optional sound toggle; reduced-motion preference respected.
@@ -35,6 +35,7 @@ npm run check
 
 - `dist/index.html`: game screen, controls, and accessible dialogs
 - `dist/style.css`: responsive artwork and animations
+- `dist/layout.js`: irregular pore placement and appearance generation
 - `dist/game.js`: pointer interaction, round state, audio, and local storage
 - `dist/icon.svg`: original favicon
 - `.openai/hosting.json`: static Sites hosting configuration (contains no credentials)

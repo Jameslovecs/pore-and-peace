@@ -1,3 +1,4 @@
+import { generatePores } from './layout.js?v=2';
 const $ = (selector) => document.querySelector(selector);
 const COUNT = 16;
 const state = { scene: 'peach', mode: 'drag', cleared: 0, round: 1, total: 0, sound: true, active: null, generation: 0 };
@@ -110,13 +111,15 @@ function animatePull(el, keyboard = false) {
   };
   state.active.frame = requestAnimationFrame(tick);
 }
-function createPore(index) {
+function createPore(index, pore) {
   const el = document.createElement('button');
   el.className = 'pore';
   el.setAttribute('aria-label', `拔出第 ${index + 1} 颗黑头`);
-  const row = Math.floor(index / 4), col = index % 4;
-  el.style.left = `${23 + col * 18 + (Math.random() - .5) * 5}%`;
-  el.style.top = `${36 + row * 15 + (Math.random() - .5) * 4}%`;
+  el.style.left = `${pore.x}%`;
+  el.style.top = `${pore.y}%`;
+  el.style.setProperty('--pore-size', `${pore.size}px`);
+  el.style.setProperty('--pore-angle', `${pore.angle}deg`);
+  el.style.setProperty('--pore-shade', pore.shade);
   el.innerHTML = '<span class="pore-stem"></span><span class="pore-core"></span><span class="tweezers"></span>';
   el.addEventListener('pointerdown', (event) => {
     if (el.disabled || !event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
@@ -151,7 +154,7 @@ function newRound(increment = true) {
   state.cleared = 0;
   if (increment) state.round++;
   $('#round-label').textContent = `你的第 ${state.round} 次小放松`;
-  $('#pores').replaceChildren(...Array.from({ length: COUNT }, (_, i) => createPore(i)));
+  $('#pores').replaceChildren(...generatePores(COUNT).map((pore, i) => createPore(i, pore)));
   $('#tray').replaceChildren(...Array.from({ length: COUNT }, () => { const el = document.createElement('i'); el.className = 'tray-slot'; return el; }));
   $('#skin').className = `skin ${state.scene}`;
   $('#pop-label').classList.remove('show');

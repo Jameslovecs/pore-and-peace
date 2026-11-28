@@ -28,3 +28,12 @@ Verified in Chrome against the local static server before publication:
 ## Verification limits
 
 Real iOS/Android touch hardware, Safari/Firefox, physical vibration, and subjective audio output were not verified. Audio is generated in Web Audio after a user gesture and fails gracefully when unavailable. Browser storage is optional; blocked storage cannot preserve totals. No backend, cloud synchronization, or leaderboard is included.
+
+## Natural placement update — 2026-11-27
+
+Replaced the jittered 4×4 grid with random best-candidate sampling inside an ellipse, plus individual plug size, rotation, and shade variation. Click-target dimensions are unchanged.
+
+- Checked 3,000 generated layouts: each contained 16 pores inside the safe ellipse; smallest observed center separation was 12.57 normalized units.
+- Visually inspected the new scattered arrangement in Chrome.
+- Cleared all 16 pores in tap mode and restarted successfully.
+- Updated asset query versions so existing visitors receive the new code and styles.
